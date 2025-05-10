@@ -7,3 +7,7 @@ requires-python = ">=3.13"
 dependencies = [
     "pymupdf4llm>=0.0.24",
 ]
+[project.optional-dependencies]
+dev = ["pyright"]
+
+[tool.pyright]
