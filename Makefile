@@ -3,8 +3,13 @@
 
 WEBSITE_DIR ?= ~/website
 
+GENAPI_KEY ?= 
+
 dataset/posts.csv: py/.venv/bin/python
 	uv run --directory py blkmkd $(WEBSITE_DIR) ../dataset/posts.csv
+
+dataset/classification.csv: py/.venv/bin/python dataset/posts.csv
+	uv run --directory py blkcly ../dataset/classification.csv $(GENAPI_KEY) ../dataset/classification.csv 
 
 py/.venv/bin/python:
 	cd py && uv sync
