@@ -12,9 +12,14 @@ dependencies = [
 ]
 
 [project.scripts]
-markdown-extract= "blanket-lm:markdown"
+# package.module:func
+blkmkd= "blanketlm:markdown"
 
 [project.optional-dependencies]
 dev = ["pyright"]
 
 [tool.pyright]
+
+
+[tool.setuptools]
+package-dir = {"" = "src"}
