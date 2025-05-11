@@ -12,7 +12,15 @@
       {
         "file": "../.vscode/copilot-commit-message-instructions.md"
       }
+    ],
+    "[python]": {
+      // See extention
+      "editor.defaultFormatter": "ms-python.black-formatter",
+      "editor.formatOnSave": true,
+    },
+    "python.testing.unittestEnabled": true,
+    "black-formatter.interpreter": [
+      "${cwd}/py/.venv/bin/python",
     ]
-    //"python.venvFolders": ["../py/.venv"],
   }
 }

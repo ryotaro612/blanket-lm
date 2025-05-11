@@ -16,10 +16,13 @@ dependencies = [
 blkmkd= "blanketlm:markdown"
 
 [project.optional-dependencies]
-dev = ["pyright"]
+dev = ["pyright", "black"]
 
 [tool.pyright]
 
 
 [tool.setuptools]
 package-dir = {"" = "src"}
+
+[tool.uv]
+package = true

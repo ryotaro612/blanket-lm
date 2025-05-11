@@ -1,4 +1,4 @@
+from blanketlm.markdown import _markdown as markdown
 
 
-def markdown():
-    print("doge")
+__all__ = ["markdown"]
