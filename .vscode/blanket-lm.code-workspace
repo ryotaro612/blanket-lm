@@ -1,0 +1,18 @@
+{
+  "folders": [
+    {
+      "path": "./.."
+    },
+    {
+      "path": "../py"
+    }
+  ],
+  "settings": {
+    "github.copilot.chat.commitMessageGeneration.instructions": [
+      {
+        "file": "./.vscode/copilot-commit-message-instructions.md"
+      }
+    ],
+    //"python.venvFolders": ["../py/.venv"],
+  }
+}
