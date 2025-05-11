@@ -13,14 +13,17 @@
         "file": "../.vscode/copilot-commit-message-instructions.md"
       }
     ],
+    "[makefile]": {
+      "editor.insertSpaces": false,
+      "editor.detectIndentation": false,
+      "editor.tabSize": 4
+    },
     "[python]": {
       // See extention
       "editor.defaultFormatter": "ms-python.black-formatter",
-      "editor.formatOnSave": true,
+      "editor.formatOnSave": true
     },
     "python.testing.unittestEnabled": true,
-    "black-formatter.interpreter": [
-      "${cwd}/py/.venv/bin/python",
-    ]
+    "black-formatter.interpreter": ["${cwd}/py/.venv/bin/python"]
   }
 }

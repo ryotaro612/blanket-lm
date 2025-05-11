@@ -26,6 +26,7 @@ package = true
 [dependency-groups]
 dev = [
     "black>=25.1.0",
+    "csvkit>=2.1.0",
     "ipython>=9.2.0",
     "pyright>=1.1.400",
 ]
