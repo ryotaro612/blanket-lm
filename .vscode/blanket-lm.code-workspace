@@ -9,11 +9,8 @@
   ],
   "settings": {
     "github.copilot.chat.commitMessageGeneration.instructions": [
-      // {
-      //   "file": "../.vscode/copilot-commit-message-instructions.md"
-      // },
       {
-        "text": "日本語をつかって."
+        "file": "../.vscode/copilot-commit-message-instructions.md"
       }
     ]
     //"python.venvFolders": ["../py/.venv"],
