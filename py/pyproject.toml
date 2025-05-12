@@ -15,6 +15,7 @@ dependencies = [
 # package.module:func
 blkmkd= "blanketlm:markdown"
 blkcly= "blanketlm:classify"
+blksmry= "blanketlm:summary"
 
 [tool.pyright]
 
