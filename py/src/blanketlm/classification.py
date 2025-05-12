@@ -1,5 +1,7 @@
 import argparse
+import sys
 from google import genai
+import logging
 from google.genai import types
 import csv
 import typing
@@ -40,45 +42,6 @@ def read_posts(file: str) -> dict[str, Post]:
         return res
 
 
-def classify(args: list[str]):
-    """ """
-    options = parse(args)
-    # empty cell is read as an empty string
-
-    """
-    Does the title of the above text come from a research paper, 
-    and is the body a summary of that paper? If so, print 'yes'; otherwise, print 'no'. 
-    The output must be either 'yes' or 'no'."
-
-    https://googleapis.github.io/python-genai/genai.html#genai.models.Models.generate_content
-    """
-    client = load_client(options.genapi_key)
-
-    posts = read_posts(options.meta)
-
-    output_file = options.output
-
-    with open(output_file, "w") as f:
-        writer = csv.writer(f)
-        writer.writerow(["name", "model", "contents", "instruction", "result"])
-        for name, post in posts.items():
-            contents = post["ja"] or posts["en"]
-
-            contents = post["en"] if post["en"] else post["ja"]
-            if not contents:
-                continue
-            inference = generate_content(client, contents)
-            writer.writerow(
-                [
-                    name,
-                    inference["model"],
-                    inference["contents"],
-                    inference["instruction"],
-                    inference["result"],
-                ]
-            )
-
-
 class Inference(typing.TypedDict):
     model: str
     contents: str
@@ -107,6 +70,50 @@ def generate_content(client: genai.client.Client, contents: str) -> Inference:
     }
 
 
-def _classify(args: list[str]):
+def classify(args: list[str]):
     """ """
     options = parse(args)
+    # empty cell is read as an empty string
+
+    """
+    Does the title of the above text come from a research paper, 
+    and is the body a summary of that paper? If so, print 'yes'; otherwise, print 'no'. 
+    The output must be either 'yes' or 'no'."
+
+    https://googleapis.github.io/python-genai/genai.html#genai.models.Models.generate_content
+    """
+    client = load_client(options.genapi_key)
+
+    posts = read_posts(options.meta)
+
+    output_file = options.output
+
+    with open(output_file, "w") as f:
+        writer = csv.writer(f)
+        writer.writerow(["name", "model", "contents", "instruction", "result"])
+        for name, post in posts.items():
+            content_file = post["ja"] or post["en"]
+
+            if not content_file:
+                continue
+
+            with open(content_file) as cf:
+                contents = cf.read()
+
+            logging.debug(f"Classifying {name}...")
+            inference = generate_content(client, contents)
+            writer.writerow(
+                [
+                    name,
+                    inference["model"],
+                    inference["contents"],
+                    inference["instruction"],
+                    inference["result"],
+                ]
+            )
+
+
+def _classify():
+    """ """
+    logging.basicConfig(level=logging.DEBUG)
+    classify(sys.argv[1:])
