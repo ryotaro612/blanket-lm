@@ -8,8 +8,6 @@ import typing
 
 
 def parse(args: list[str]):
-    ...
-
     parser = argparse.ArgumentParser()
     parser.add_argument("meta")
     parser.add_argument("genapi_key")
