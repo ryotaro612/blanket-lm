@@ -9,6 +9,7 @@ dependencies = [
     "google-genai>=1.14.0",
     "markdown>=3.8",
     "pymupdf4llm>=0.0.24",
+    "requests>=2.32.3",
 ]
 
 [project.scripts]
@@ -17,7 +18,7 @@ blkmkd= "blanketlm:markdown"
 blkcly= "blanketlm:classify"
 blksmry= "blanketlm:summary"
 links = "blanketlm:extract" 
-
+retrieve = "blanketlm:retrieve"
 [tool.pyright]
 
 [tool.setuptools]
