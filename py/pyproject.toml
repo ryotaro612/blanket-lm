@@ -16,6 +16,7 @@ dependencies = [
 blkmkd= "blanketlm:markdown"
 blkcly= "blanketlm:classify"
 blksmry= "blanketlm:summary"
+links = "blanketlm:extract" 
 
 [tool.pyright]
 

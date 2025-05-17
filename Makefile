@@ -6,6 +6,9 @@ WEBSITE_DIR ?= ~/website
 GENAPI_KEY ?= 
 
 
+dataset/links.csv: dataset/summary.csv
+	uv run --directory py links ../dataset/summary.csv ../dataset/posts.csv $(GENAPI_KEY) ../dataset/links.csv
+
 dataset/summary.csv: dataset/classification.csv
 	uv run --directory py blksmry ../dataset/classification.csv ../dataset/summary.csv
 

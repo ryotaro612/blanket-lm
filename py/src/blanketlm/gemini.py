@@ -9,7 +9,10 @@ def load_client(api_key: str) -> genai.client.Client:
 
 
 class Request(typing.TypedDict):
-    """Represents a request to gemini."""
+    """Represents a request to gemini.
+
+    model: e.g., gemini-2.0-flash
+    """
 
     instruction: str
     model: str
@@ -17,7 +20,7 @@ class Request(typing.TypedDict):
 
 
 def generate_content(client: genai.client.Client, request: Request):
-    """"""
+    """ """
     return client.models.generate_content(
         model=request["model"],
         contents=request["contents"],
