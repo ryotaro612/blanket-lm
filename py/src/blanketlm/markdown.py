@@ -45,10 +45,10 @@ class Website:
         for filename in filenames:
             filepath = path.join(self.posts_dir, filename)
             if filename.endswith("en.md"):
-                name = filename[:-5]
+                name = filename[:-6]
                 lang = "en"
             elif filename.endswith("ja.md"):
-                name = filename[:-5]
+                name = filename[:-6]
                 lang = "ja"
             else:
                 name = filename[:-3]
