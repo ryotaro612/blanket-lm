@@ -5,6 +5,16 @@ WEBSITE_DIR ?= ~/website
 
 GENAPI_KEY ?= 
 
+
+.PHONY: all clean help mdpapers finetune
+
+
+finetune:
+	uv run --directory py blkfinetune ../dataset/posts.csv ../dataset/mdpapers
+
+mdpapers:
+	uv run --directory py blkpdfmd ../dataset/papers ../dataset/mdpapers
+
 dataset/retrieval_result.csv: dataset/links.csv
 	uv run --directory py retrieve ../dataset/links.csv ../dataset/papers ../dataset/retrieval_result.csv
 

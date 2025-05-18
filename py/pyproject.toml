@@ -20,6 +20,7 @@ blksmry= "blanketlm:summary"
 blklinks = "blanketlm:extract" 
 lbkretrieve = "blanketlm:retrieve"
 blkfinetune = "blanketlm:finetune"
+blkpdfmd = "blanketlm:pdfmd"
 [tool.pyright]
 
 [tool.setuptools]
